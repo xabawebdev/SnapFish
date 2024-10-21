@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.android_apps.snapfish"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
+    //implementation(libs.litert)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,10 +74,17 @@ dependencies {
 
 
     // CameraX dependencies
-    implementation("androidx.camera:camera-core:$cameraxVersion")
-    implementation("androidx.camera:camera-camera2:$cameraxVersion")
-    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
-    implementation("androidx.camera:camera-view:$cameraxVersion")
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
     // Optional: If you want to use the CameraX extensions
-    implementation("androidx.camera:camera-extensions:$cameraxVersion")
+    implementation(libs.androidx.camera.extensions)
+
+    // TensorFlow Lite library
+    implementation (libs.tensorflow.lite)
+
+    // Optional: GPU or NNAPI acceleration (if your model supports it)
+    implementation (libs.tensorflow.lite.gpu)
+    implementation (libs.tensorflow.lite.support)
 }
